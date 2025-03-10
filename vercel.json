@@ -2,26 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "dist/index.js",
+      "src": "package.json",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "dist/index.js"
+      "dest": "/dist/index.js"
     },
     {
       "src": "/uploads/(.*)",
-      "dest": "dist/index.js"
+      "dest": "/dist/index.js"
+    },
+    {
+      "src": "/(.*\\.[a-z0-9]+$)",
+      "dest": "/dist/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/index.html"
+      "dest": "/dist/index.html"
     }
   ],
   "env": {
